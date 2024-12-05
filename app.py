@@ -11,9 +11,9 @@ import sys
 import pubchempy as pcp
 
 # Configuración de la barra lateral
-st.sidebar.image("AI.png", caption="Autor: Jesus Alvarado-Huayhuaz")
-st.sidebar.title("Sideróforos")
-st.sidebar.markdown("Base de Datos")
+st.sidebar.image("AI.png") #, caption="Autor: Jesus Alvarado-Huayhuaz")
+st.sidebar.title("Base de Datos de Sideróforos")
+st.sidebar.markdown("Autor: Jesús Alvarado-Huayhuaz")
 
 # Cargar el archivo CSV
 #@st.cache_data
