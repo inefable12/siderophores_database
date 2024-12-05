@@ -60,9 +60,12 @@ if data is not None:
         st.markdown("### Nombre IUPAC")  
         nombreiupac = pcp.get_compounds(smiles,'smiles')
         st.text(nombreiupac[0].iupac_name)
-              
-        st.subheader(f"asd: {name}")
-        #st.text(coeficientedeparticion[0].xlogp)
+
+        st.markdown("### Coeficiente de partición")
+        coeficientedeparticion = get_compounds(smiles, 'coeficiente')
+        st.text(coeficientedeparticion[0].xlogp)
+        
+        #st.subheader(f"ID: {name}")
         st.text(f"Código SMILES: {smiles}")
         
         # Generar la representación 2D de la molécula
