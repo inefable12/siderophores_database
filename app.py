@@ -93,13 +93,13 @@ if data is not None:
         show_3d(smiles)
         
         # Botón para descargar el archivo SDF
-        """if mol:
-            sdf_data = generate_sdf(mol)
-            st.download_button(
-                label="Descargar archivo SDF 3D",
-                data=sdf_data,
-                file_name=f"{name}.sdf",
-                mime="chemical/x-mdl-sdfile"
-            ) """
+        #if mol:
+            #sdf_data = generate_sdf(mol)
+            #st.download_button(
+                #label="Descargar archivo SDF 3D",
+                #data=sdf_data,
+                #file_name=f"{name}.sdf",
+                #mime="chemical/x-mdl-sdfile"
+            #)
 else:
     st.warning("El archivo CSV no contiene datos válidos o no está cargado.")
