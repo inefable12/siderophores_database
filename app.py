@@ -11,7 +11,7 @@ st.sidebar.title("Sideróforos")
 st.sidebar.markdown("Visualización interactiva de moléculas desde un archivo CSV.")
 
 # Cargar el archivo CSV
-@st.cache_data
+#@st.cache_data
 def load_data(file_path):
     try:
         return pd.read_csv(file_path)
