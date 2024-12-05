@@ -57,9 +57,9 @@ if data is not None:
         smiles = selected_row["SMILES"]
         name = selected_row["Name"]
 
-        st.markdown("### Nombre IUPAC")  
-        nombreiupac = pcp.get_compounds(smiles,'smiles')
-        st.text(nombreiupac[0].iupac_name)
+        #st.markdown("### Nombre IUPAC")  
+        #nombreiupac = pcp.get_compounds(smiles,'smiles')
+        #st.text(nombreiupac[0].iupac_name)
 
         st.markdown("### Coeficiente de partición")
         coeficientedeparticion = get_compounds(smiles, 'smiles')
