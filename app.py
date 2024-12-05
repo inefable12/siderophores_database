@@ -58,9 +58,9 @@ if data is not None:
         name = selected_row["Name"]
 
         #st.markdown("### Coeficiente de partición")
-        coeficientedeparticion = get_compounds(smiles, 'Código SMILES')
+        #coeficientedeparticion = get_compounds(smiles, 'Código SMILES')
         # Mostrar información de la molécula
-        st.subheader(f"Coeficiente de partición: {coeficientedeparticion[0].xlogp}")
+        st.subheader(f"asd: {name}")
         #st.text(coeficientedeparticion[0].xlogp)
         st.text(f"Código SMILES: {smiles}")
         
