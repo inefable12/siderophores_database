@@ -6,11 +6,14 @@ from rdkit.Chem import AllChem
 import py3Dmol
 from stmol import showmol
 from io import BytesIO
+from pubchempy import get_compounds, Compound
+import sys
+import pubchempy as pcp
 
 # Configuración de la barra lateral
-st.sidebar.image("AI.png", caption="Jesus Alvarado-Huayhuaz")
+st.sidebar.image("AI.png", caption="Autor: Jesus Alvarado-Huayhuaz")
 st.sidebar.title("Sideróforos")
-st.sidebar.markdown("Visualización interactiva de moléculas desde un archivo CSV.")
+st.sidebar.markdown("Base de Datos")
 
 # Cargar el archivo CSV
 #@st.cache_data
@@ -53,9 +56,12 @@ if data is not None:
         # Extraer datos de la molécula seleccionada
         smiles = selected_row["SMILES"]
         name = selected_row["Name"]
-        
+
+        #st.markdown("### Coeficiente de partición")
+        coeficientedeparticion = get_compounds(smiles, 'Código SMILES')
         # Mostrar información de la molécula
-        st.subheader(f"Nombre: {name}")
+        st.subheader(f"Coeficiente de partición: {coeficientedeparticion[0].xlogp}")
+        #st.text(coeficientedeparticion[0].xlogp)
         st.text(f"Código SMILES: {smiles}")
         
         # Generar la representación 2D de la molécula
