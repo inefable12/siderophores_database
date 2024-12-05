@@ -14,11 +14,6 @@ from rdkit.Chem import Draw
 from rdkit.Chem import AllChem
 
 
-
-
-
-
-
 # Cargar datos desde el archivo CSV
 @st.cache_data
 def load_data(file_path):
@@ -51,7 +46,7 @@ data = load_data(csv_file)
 
 # Sidebar
 st.sidebar.header("Opciones de Búsqueda")
-smiles_input = st.sidebar.text_input("Escribe el SMILES para buscar:", "FCCC(=O)[O-]")
+smiles_input = st.sidebar.text_input("Escribe el SMILES para buscar:", "[O-]C(=O)c1c(O)c(O)ccc1")
 mol_name = st.sidebar.selectbox("Selecciona una molécula del dataset:", data['name'])
 
 # Procesar la entrada del SMILES
