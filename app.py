@@ -57,9 +57,10 @@ if data is not None:
         smiles = selected_row["SMILES"]
         name = selected_row["Name"]
 
-        #st.markdown("### Coeficiente de partición")
-        #coeficientedeparticion = get_compounds(smiles, 'Código SMILES')
-        # Mostrar información de la molécula
+        st.markdown("### Nombre IUPAC")  
+        nombreiupac = pcp.get_compounds(smiles,'smiles')
+        st.text(nombreiupac[0].iupac_name)
+              
         st.subheader(f"asd: {name}")
         #st.text(coeficientedeparticion[0].xlogp)
         st.text(f"Código SMILES: {smiles}")
