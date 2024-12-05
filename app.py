@@ -5,9 +5,12 @@ from rdkit.Chem import Draw
 import py3Dmol
 from stmol import showmol
 
+from rdkit.Chem import AllChem
+from io import BytesIO
+
 # Configuración de la barra lateral
 #st.sidebar.image("img/gpx4.png", caption="Jesus Alvarado-Huayhuaz")
-st.sidebar.title("Sideróforos")
+st.sidebar.title("Base de datos de Sideróforos")
 st.sidebar.markdown("Visualización interactiva de moléculas desde un archivo CSV.")
 
 # Cargar el archivo CSV
