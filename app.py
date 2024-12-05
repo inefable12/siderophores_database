@@ -47,7 +47,7 @@ if data is not None:
     if "SMILES" not in data.columns or "Name" not in data.columns:
         st.error("El archivo CSV debe contener las columnas 'SMILES' y 'Name'.")
     else:
-        st.title("Visualización de Sideróforos")
+        st.title("Base de Datos de Sideróforos")
         
         # Mostrar un slider para seleccionar una molécula
         molecule_index = st.slider("Selecciona una molécula", 0, len(data) - 1, 0)
@@ -62,7 +62,7 @@ if data is not None:
         st.text(nombreiupac[0].iupac_name)
 
         st.markdown("### Coeficiente de partición")
-        coeficientedeparticion = get_compounds(smiles, 'coeficiente')
+        coeficientedeparticion = get_compounds(smiles, 'smiles')
         st.text(coeficientedeparticion[0].xlogp)
         
         #st.subheader(f"ID: {name}")
