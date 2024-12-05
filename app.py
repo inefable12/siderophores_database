@@ -2,15 +2,14 @@ import streamlit as st
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem import Draw
+from rdkit.Chem import AllChem
 import py3Dmol
 from stmol import showmol
-
-from rdkit.Chem import AllChem
 from io import BytesIO
 
 # Configuración de la barra lateral
-#st.sidebar.image("img/gpx4.png", caption="Jesus Alvarado-Huayhuaz")
-st.sidebar.title("Base de datos de Sideróforos")
+st.sidebar.image("img/gpx4.png", caption="Jesus Alvarado-Huayhuaz")
+st.sidebar.title("Sideróforos")
 st.sidebar.markdown("Visualización interactiva de moléculas desde un archivo CSV.")
 
 # Cargar el archivo CSV
@@ -21,6 +20,20 @@ def load_data(file_path):
     except Exception as e:
         st.error(f"Error al cargar el archivo CSV: {e}")
         return None
+
+# Generar archivo SDF
+def generate_sdf(mol):
+    """Genera un archivo SDF 3D de la molécula dada."""
+    mol = Chem.AddHs(mol)
+    AllChem.EmbedMolecule(mol)
+    AllChem.MMFFOptimizeMolecule(mol, maxIters=200)
+    
+    sdf_data = BytesIO()
+    writer = Chem.SDWriter(sdf_data)
+    writer.write(mol)
+    writer.close()
+    sdf_data.seek(0)
+    return sdf_data
 
 # Leer el archivo CSV cargado por el usuario
 csv_path = "sideroforo_web.csv"  # Nombre del archivo
@@ -68,5 +81,15 @@ if data is not None:
             showmol(viewer, height=400, width=500)
 
         show_3d(smiles)
+        
+        # Botón para descargar el archivo SDF
+        if mol:
+            sdf_data = generate_sdf(mol)
+            st.download_button(
+                label="Descargar archivo SDF 3D",
+                data=sdf_data,
+                file_name=f"{name}.sdf",
+                mime="chemical/x-mdl-sdfile"
+            )
 else:
     st.warning("El archivo CSV no contiene datos válidos o no está cargado.")
