@@ -1,8 +1,23 @@
-import streamlit as st
-from rdkit import Chem
-from rdkit.Chem import Draw, AllChem
-import py3Dmol
+#import streamlit as st
+#from rdkit import Chem
+#from rdkit.Chem import Draw, AllChem
+#import py3Dmol
 import pandas as pd
+import streamlit as st
+import sys
+
+import streamlit.components.v1 as components
+import py3Dmol
+from stmol import showmol
+from rdkit import Chem
+from rdkit.Chem import Draw
+from rdkit.Chem import AllChem
+
+
+
+
+
+
 
 # Cargar datos desde el archivo CSV
 @st.cache_data
